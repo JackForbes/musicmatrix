@@ -56,13 +56,13 @@ body {
 .block {
 	width:30px;
 	height:30px;
-	margin:5px;
+	margin:4px 2px;
 	background:#AAA;
 }
 
 .button {
 	float:left;
-	padding:2px 5px;
+	padding:5px;
 	color:#FFF;
 	background:#222;
 }
@@ -71,18 +71,35 @@ body {
 	background:#FFF;
 }
 
+.column {
+	float:left;
+}
+
+.container-musicmatrix {
+	overflow:hidden;
+}
+
 </style>
 
-<div class="block" hz="1000"></div>
-<div class="block" hz="900"></div>
-<div class="block" hz="800"></div>
-<div class="block" hz="700"></div>
-<div class="block" hz="600"></div>
-<div class="block" hz="500"></div>
-<div class="block" hz="400"></div>
-<div class="block" hz="300"></div>
-<div class="block" hz="200"></div>
-<div class="block" hz="100"></div>
+<div class="container-musicmatrix">
+	<div class="column">
+		<div class="block" hz="1000"></div>
+		<div class="block" hz="900"></div>
+		<div class="block" hz="800"></div>
+	</div>
+
+	<div class="column">
+		<div class="block" hz="1000"></div>
+		<div class="block" hz="900"></div>
+		<div class="block" hz="800"></div>
+	</div>
+
+	<div class="column">
+		<div class="block" hz="1000"></div>
+		<div class="block" hz="900"></div>
+		<div class="block" hz="800"></div>
+	</div>
+</div>
 
 <div class="button stop">STOP</div>
 
