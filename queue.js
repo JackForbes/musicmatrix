@@ -49,7 +49,6 @@ Queue.prototype.playBlock = function(id) {
 // Take in a set of ids to play
 Queue.prototype.playBlocks = function(ids) {
     for (var id in ids) {
-        console.log(ids[id]);
         this.playBlock(ids[id]);
     }
 }
