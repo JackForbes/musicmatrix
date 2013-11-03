@@ -1,17 +1,25 @@
 function newHtmlBlock(id) {
-    $('.container').append('<div class="block" data-id="' + id + '"></div>');
+    return('<div class="block" data-id="' + id + '"></div>');
 }
 
+var WIDTH = 12;
+
 var frequencies = [
-    100,
-    200,
-    300,
-    400,
-    500,
+    750,
+    700,
+    650,
     600,
+    550,
+    500,
+    450,
+    400,
+    350,
+    300,
+    250,
+    200
 ];
 
-iterFrequency = 1;
+iterFrequency = 0.5;
 
 
 function Queue(n) {
@@ -48,10 +56,14 @@ Queue.prototype.playBlocks = function(ids) {
 
 // Init function that will generate all of the blocks
 Queue.prototype.init = function() {
-    current = 0;
-    console.log(this.n);
-    for (var id in this.blocks) {
-        newHtmlBlock(id);
+    for (var i in this.matrix) {
+        var html = "";
+        for (var j in this.matrix[i] ) {
+           html += newHtmlBlock(this.matrix[i][j]);
+        }
+
+        $('.container').append("<div class='column'>" + html +"</div>");
+
     }
 }
 
@@ -82,9 +94,8 @@ Queue.prototype.start = function() {
     }, iterFrequency * 1000);
 }
 
-
 $(document).ready(function() {
-    var queue = new Queue(1);
+    var queue = new Queue(WIDTH);
     queue.init();
 
     $('.block').click(function(e) {
