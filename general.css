@@ -7,6 +7,10 @@ body {
     background-color:black;
 }
 
+.container {
+    overflow:hidden;
+}
+
 #header {
     height:50px;
     color:white;
@@ -48,4 +52,12 @@ body {
 
 .active {
     background:#00DDDD;
+}
+
+.tracker {
+    opacity:0.2;
+    width:5px;
+    top:10px;
+    position:absolute;
+    background:#FFF;
 }

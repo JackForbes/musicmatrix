@@ -3,6 +3,8 @@ function newHtmlBlock(id) {
 }
 
 var WIDTH = 12;
+var BLOCK_SIZE = 34;
+var BLOCK_MARGIN = 2;
 
 var frequencies = [
     475,
@@ -25,7 +27,7 @@ iterFrequency = 0.5;
 function Queue(n) {
     this.n = n;
     this.blocks = {};
-    this.matrix = {}
+    this.matrix = {};
 
     // Initialize blocks and matrix variables
     for (var i = 0; i < n; i++) {
@@ -56,6 +58,8 @@ Queue.prototype.playBlocks = function(ids) {
 
 // Init function that will generate all of the blocks
 Queue.prototype.init = function() {
+    $('.tracker').css('height', this.n * BLOCK_SIZE);
+
     for (var i in this.matrix) {
         var html = "";
         for (var j in this.matrix[i] ) {
@@ -63,7 +67,6 @@ Queue.prototype.init = function() {
         }
 
         $('.container').append("<div class='column'>" + html +"</div>");
-
     }
 }
 
@@ -88,10 +91,28 @@ Queue.prototype.start = function() {
         }
         queue.playBlocks(activeIds);
 
+
+
         if (stop) {
             return;
         }
     }, iterFrequency * 1000);
+
+    moveTracker(queue);
+
+}
+
+function moveTracker(queue) {
+    $('.tracker').animate({
+        left: queue.n * BLOCK_SIZE
+    }, {
+        easing: "linear",
+        duration: queue.n * iterFrequency * 1000,
+        complete: function(){
+            $(this).css('left', 20);
+            moveTracker(queue);
+        }
+    });
 }
 
 $(document).ready(function() {
