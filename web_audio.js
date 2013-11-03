@@ -39,8 +39,6 @@ function createAudioContext()
 // Start off by initializing a new context.
 var context =  createAudioContext();
 
-console.log(context);
-
 // shim layer with setTimeout fallback
 window.requestAnimFrame = (function() {
     return  window.requestAnimationFrame || 

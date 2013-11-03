@@ -58,6 +58,7 @@ body {
     opacity:0.2;
     width:5px;
     top:10px;
+    left:20px;
     position:absolute;
     background:#FFF;
 }
