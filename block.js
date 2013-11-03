@@ -23,6 +23,7 @@ Block.prototype.initAudio = function(frequency) {
 
     this.oscillator = oscillator;
     this.amp = amp;
+    this.amp.gain.linearRampToValueAtTime(0.0, context.currentTime + 0);
 }
 
 // Play a sound for a given block
