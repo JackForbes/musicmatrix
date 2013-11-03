@@ -11,7 +11,7 @@ var frequencies = [
     600,
 ];
 
-iterFrequency = 0.5;
+iterFrequency = 1;
 
 
 function Queue(n) {
@@ -82,7 +82,7 @@ Queue.prototype.start = function() {
 
 
 $(document).ready(function() {
-    var queue = new Queue(2);
+    var queue = new Queue(1);
     queue.init();
 
     $('.block').click(function(e) {
@@ -90,8 +90,6 @@ $(document).ready(function() {
         block.toggleActive();
 
         $(this).toggleClass('active');
-
-        block.play();
     });
 
     $('#stop').click(function() {
@@ -104,5 +102,3 @@ $(document).ready(function() {
 
     queue.start();
 });
-
-
