@@ -15,10 +15,8 @@ iterFrequency = 0.5;
 
 
 function Queue(n) {
-    // Uses to lookup blocks
+    this.n = n;
     this.blocks = {};
-
-    // Holds the structure of the matrix
     this.matrix = {}
 
     // Initialize blocks and matrix variables
@@ -40,8 +38,15 @@ Queue.prototype.playBlock = function(id) {
     block.play();
 }
 
+// Take in a set of ids to play
+Queue.prototype.playBlocks = function(ids) {
+    for (var id in ids) {
+        console.log(ids[id]);
+        this.playBlock(ids[id]);
+    }
+}
 
-// Start function that will generate all of the blocks
+// Init function that will generate all of the blocks
 Queue.prototype.init = function() {
     for (var id in this.blocks) {
         newHtmlBlock(id);
@@ -49,9 +54,30 @@ Queue.prototype.init = function() {
 }
 
 
+var stop = false;
 // Start playing the sounds.  This will loop through the matrix and play active blocks
 Queue.prototype.start = function() {
+    var queue = this;
+    var matrix = queue.matrix;
 
+    var i = 0;
+    window.setInterval(function() {
+        i = (i + 1) % queue.n;
+
+        var activeIds = []
+        for (var id in matrix[i]) {
+            var block = queue.blocks[matrix[i][id]];
+
+            if (block.active) {
+                activeIds.push(block.id);
+            }
+        }
+        queue.playBlocks(activeIds);
+
+        if (stop) {
+            return;
+        }
+    }, iterFrequency * 1000);
 }
 
 
@@ -67,7 +93,16 @@ $(document).ready(function() {
 
         block.play();
     });
+
+    $('#stop').click(function() {
+        stop = true;
+    });
+
+    $('#start').click(function() {
+        queue.start();
+    })
+
+    queue.start();
 });
 
 
-// console.log(queue.matrix[0]);
