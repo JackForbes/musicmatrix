@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript"> 
+$(document).ready(function(){
+	var context;
+	window.addEventListener('load', init, false);
+	function init() {
+		try {
+			// Fix up for prefixing
+			window.AudioContext = window.AudioContext||window.webkitAudioContext;
+			context = new AudioContext();
+		}
+		catch(e) {
+			alert('Web Audio API is not supported in this browser');
+		}
+
+		initAudio();
+	}
+
+	$('.block').click(function(e){
+		if($(this).hasClass('selected')){
+			$(this).removeClass('selected');
+		}
+		else {
+			$(this).addClass('selected');
+		}
+		playSound();
+	});
+
+	function initAudio() {
+		context.createOscillator();
+	}
+
+	function playSound() {
+		var node = context.createJavaScriptNode(1024, 1, 1);
+
+	}
+
+
+});
+
+</script>
+
+<style>
+
+body {
+	background:#000;
+}
+
+.block {
+	width:30px;
+	height:30px;
+	margin:5px;
+	background:#AAA;
+}
+
+.button {
+	float:left;
+	padding:2px 5px;
+	color:#FFF;
+	background:#222;
+}
+
+.selected {
+	background:#FFF;
+}
+
+</style>
+
+<div class="block" hz="1000"></div>
+<div class="block" hz="900"></div>
+<div class="block" hz="800"></div>
+<div class="block" hz="700"></div>
+<div class="block" hz="600"></div>
+<div class="block" hz="500"></div>
+<div class="block" hz="400"></div>
+<div class="block" hz="300"></div>
+<div class="block" hz="200"></div>
+<div class="block" hz="100"></div>
+
+<div class="button stop">STOP</div>
+
+</body>
+
+</html>
