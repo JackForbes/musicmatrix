@@ -1,5 +1,5 @@
 function newHtmlBlock(id) {
-    $('.container').append('<div class="block" data-id="' + id + '">BLOCK-' + id + '</div><br />');
+    $('.container').append('<div class="block" data-id="' + id + '"></div>');
 }
 
 var frequencies = [
@@ -48,6 +48,8 @@ Queue.prototype.playBlocks = function(ids) {
 
 // Init function that will generate all of the blocks
 Queue.prototype.init = function() {
+    current = 0;
+    console.log(this.n);
     for (var id in this.blocks) {
         newHtmlBlock(id);
     }
