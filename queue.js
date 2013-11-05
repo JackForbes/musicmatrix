@@ -7,18 +7,18 @@ var BLOCK_SIZE = 34;
 var BLOCK_MARGIN = 2;
 
 var frequencies = [
-    475,
-    450,
-    425,
-    400,
-    375,
-    350,
-    325,
-    300,
-    275,
-    250,
-    225,
-    200
+    493.88,
+    440,
+    392,
+    349.23,
+    329.63,
+    293.66,
+    261.63,
+    246.94,
+    220,
+    196,
+    174.61,
+    164.81
 ];
 
 iterFrequency = 0.5;
@@ -43,15 +43,15 @@ function Queue(n) {
 }
 
 // Take in an id for a block and play it
-Queue.prototype.playBlock = function(id) {
+Queue.prototype.playBlock = function(id, factor) {
     block = this.blocks[id];
-    block.play();
+    block.play(factor);
 }
 
 // Take in a set of ids to play
 Queue.prototype.playBlocks = function(ids) {
     for (var id in ids) {
-        this.playBlock(ids[id]);
+        this.playBlock(ids[id], 1/ids.length);
     }
 }
 

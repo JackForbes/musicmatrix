@@ -27,8 +27,8 @@ Block.prototype.initAudio = function(frequency) {
 }
 
 // Play a sound for a given block
-Block.prototype.play = function() {
-    this.amp.gain.linearRampToValueAtTime(0.5, context.currentTime + 0.1);
+Block.prototype.play = function(factor) {
+    this.amp.gain.linearRampToValueAtTime(0.5*factor, context.currentTime + 0.1);
     this.amp.gain.linearRampToValueAtTime(0.0, context.currentTime + 0.5);
 }
 
