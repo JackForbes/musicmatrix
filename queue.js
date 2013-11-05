@@ -21,7 +21,7 @@ var frequencies = [
     164.81
 ];
 
-iterFrequency = 0.5;
+iterFrequency = 0.25;
 
 
 function Queue(n) {
