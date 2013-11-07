@@ -7,6 +7,10 @@ body {
     background-color:black;
 }
 
+.container {
+    overflow:hidden;
+}
+
 #header {
     height:50px;
     color:white;
@@ -105,4 +109,12 @@ body {
 
 .selected {
     animation:flutter 5s;
+}
+
+.tracker {
+    opacity:0.2;
+    width:3px;
+    top:10px;
+    position:absolute;
+    background:#FFF;
 }
