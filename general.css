@@ -52,8 +52,6 @@ body {
 
 .active {
     background:#00DDDD;
-    animation:flutter 0.5s;
-    -webkit-animation:flutter 0.5s;
 }
 
 @keyframes flutter {
@@ -108,7 +106,8 @@ body {
 }
 
 .selected {
-    animation:flutter 5s;
+    animation:flutter 0.5s;
+    -webkit-animation:flutter 0.5s;
 }
 
 .tracker {

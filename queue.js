@@ -45,7 +45,9 @@ function Queue(n) {
 // Take in an id for a block and play it
 Queue.prototype.playBlock = function(id) {
     block = this.blocks[id];
+    blockElement = $("div[data-id='" + id + "']");
     block.play();
+    blockElement.addClass('selected');
 }
 
 // Take in a set of ids to play
@@ -132,6 +134,10 @@ $(document).ready(function() {
     $('#start').click(function() {
         queue.start();
     })
+
+    $(".block").bind('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
+        $(this).removeClass('selected');
+    });
 
     queue.start();
 });
