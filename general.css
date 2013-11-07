@@ -34,7 +34,7 @@ body {
 .block {
     width:30px;
     height:30px;
-    margin:4px 2px;
+    margin:5px 3px;
     background:#333;
     border-radius:3px;
     /*-webkit-box-shadow: inset 0px 0px 2px 2px #000;*/
@@ -48,4 +48,61 @@ body {
 
 .active {
     background:#00DDDD;
+    animation:flutter 0.5s;
+    -webkit-animation:flutter 0.5s;
+}
+
+@keyframes flutter {
+    0% {-webkit-box-shadow: 0px 0px 2px 2px #FFF;
+    box-shadow: 0px 0px 2px 2px #FFF;}
+    10% {-webkit-box-shadow: 0px 0px 4px 3px #FFF;
+    box-shadow: 0px 0px 4px 3px #FFF;}
+    20% {-webkit-box-shadow: 0px 0px 6px 3px #FFF;
+    box-shadow: 0px 0px 6px 3px #FFF;}
+    30% {-webkit-box-shadow: 0px 0px 8px 3px #FFF;
+    box-shadow: 0px 0px 8px 3px #FFF;}
+    40% {-webkit-box-shadow: 0px 0px 10px 3px #FFF;
+    box-shadow: 0px 0px 10px 3px #FFF;}
+    50% {-webkit-box-shadow: 0px 0px 12px 3px #FFF;
+    box-shadow: 0px 0px 12px 3px #FFF;}
+    60% {-webkit-box-shadow: 0px 0px 10px 3px #FFF;
+    box-shadow: 0px 0px 10px 3px #FFF;}
+    70% {-webkit-box-shadow: 0px 0px 8px 3px #FFF;
+    box-shadow: 0px 0px 8px 3px #FFF;}
+    80% {-webkit-box-shadow: 0px 0px 6px 3px #FFF;
+    box-shadow: 0px 0px 6px 3px #FFF;}
+    90% {-webkit-box-shadow: 0px 0px 4px 3px #FFF;
+    box-shadow: 0px 0px 4px 3px #FFF;}
+    100% {-webkit-box-shadow: 0px 0px 2px 2px #FFF;
+    box-shadow: 0px 0px 2px 2px #FFF;}
+}
+
+@-webkit-keyframes flutter
+{
+    0% {-webkit-box-shadow: 0px 0px 2px 2px #FFF;
+    box-shadow: 0px 0px 2px 2px #FFF;}
+    10% {-webkit-box-shadow: 0px 0px 4px 3px #FFF;
+    box-shadow: 0px 0px 4px 3px #FFF;}
+    20% {-webkit-box-shadow: 0px 0px 6px 3px #FFF;
+    box-shadow: 0px 0px 6px 3px #FFF;}
+    30% {-webkit-box-shadow: 0px 0px 8px 3px #FFF;
+    box-shadow: 0px 0px 8px 3px #FFF;}
+    40% {-webkit-box-shadow: 0px 0px 10px 3px #FFF;
+    box-shadow: 0px 0px 10px 3px #FFF;}
+    50% {-webkit-box-shadow: 0px 0px 12px 3px #FFF;
+    box-shadow: 0px 0px 12px 3px #FFF;}
+    60% {-webkit-box-shadow: 0px 0px 10px 3px #FFF;
+    box-shadow: 0px 0px 10px 3px #FFF;}
+    70% {-webkit-box-shadow: 0px 0px 8px 3px #FFF;
+    box-shadow: 0px 0px 8px 3px #FFF;}
+    80% {-webkit-box-shadow: 0px 0px 6px 3px #FFF;
+    box-shadow: 0px 0px 6px 3px #FFF;}
+    90% {-webkit-box-shadow: 0px 0px 4px 3px #FFF;
+    box-shadow: 0px 0px 4px 3px #FFF;}
+    100% {-webkit-box-shadow: 0px 0px 2px 2px #FFF;
+    box-shadow: 0px 0px 2px 2px #FFF;}
+}
+
+.selected {
+    animation:flutter 5s;
 }
