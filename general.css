@@ -38,7 +38,7 @@ body {
 .block {
     width:30px;
     height:30px;
-    margin:5px 3px;
+    margin:4px 2px;
     background:#333;
     border-radius:3px;
     /*-webkit-box-shadow: inset 0px 0px 2px 2px #000;*/
@@ -50,11 +50,40 @@ body {
     box-shadow: 0px 0px 2px 2px #FFF;
 }
 
+.ring {
+    width:28px;
+    height:28px;
+    border-radius: 50%;
+    position:absolute;
+    background-color:transparent;
+    border:1px solid white;
+    visibility:hidden;
+}
+
 .active {
     background:#00DDDD;
 }
 
-@keyframes flutter {
+.selected {
+    /*animation:shadow 0.5s;*/
+    /*-webkit-animation:shadow 0.5s;*/
+}
+
+.expand {
+    visibility:visible;
+    animation:radiate 0.7s;
+    -webkit-animation:radiate 0.7s;
+}
+
+.tracker {
+    opacity:0.2;
+    width:3px;
+    top:10px;
+    position:absolute;
+    background:#FFF;
+}
+
+@keyframes shadow {
     0% {-webkit-box-shadow: 0px 0px 2px 2px #FFF;
     box-shadow: 0px 0px 2px 2px #FFF;}
     10% {-webkit-box-shadow: 0px 0px 4px 3px #FFF;
@@ -79,7 +108,7 @@ body {
     box-shadow: 0px 0px 2px 2px #FFF;}
 }
 
-@-webkit-keyframes flutter
+@-webkit-keyframes shadow
 {
     0% {-webkit-box-shadow: 0px 0px 2px 2px #FFF;
     box-shadow: 0px 0px 2px 2px #FFF;}
@@ -105,15 +134,23 @@ body {
     box-shadow: 0px 0px 2px 2px #FFF;}
 }
 
-.selected {
-    animation:flutter 0.5s;
-    -webkit-animation:flutter 0.5s;
+@keyframes radiate
+{
+    0% {-webkit-transform: scale(1.5); opacity:1;}
+    20% {-webkit-transform: scale(2); opacity:0.9;}
+    40% {-webkit-transform: scale(2.5); opacity:0.6;}
+    60% {-webkit-transform: scale(3); opacity:0.4;}
+    80% {-webkit-transform: scale(3.5); opacity:0.2;}
+    100% {-webkit-transform: scale(4); opacity:0;}
 }
 
-.tracker {
-    opacity:0.2;
-    width:3px;
-    top:10px;
-    position:absolute;
-    background:#FFF;
+@-webkit-keyframes radiate
+{
+    0% {-webkit-transform: scale(1.5); opacity:1;}
+    20% {-webkit-transform: scale(2); opacity:0.9;}
+    40% {-webkit-transform: scale(2.5); opacity:0.6;}
+    60% {-webkit-transform: scale(3); opacity:0.4;}
+    80% {-webkit-transform: scale(3.5); opacity:0.2;}
+    100% {-webkit-transform: scale(4); opacity:0;}
 }
+

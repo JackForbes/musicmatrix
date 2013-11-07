@@ -1,5 +1,5 @@
 function newHtmlBlock(id) {
-    return('<div class="block" data-id="' + id + '"></div>');
+    return('<div class="block" data-id="' + id + '"><div class="ring"></div></div>');
 }
 
 var WIDTH = 12;
@@ -48,6 +48,7 @@ Queue.prototype.playBlock = function(id) {
     blockElement = $("div[data-id='" + id + "']");
     block.play();
     blockElement.addClass('selected');
+    blockElement.children(".ring").addClass('expand');
 }
 
 // Take in a set of ids to play
@@ -137,6 +138,10 @@ $(document).ready(function() {
 
     $(".block").bind('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
         $(this).removeClass('selected');
+    });
+
+    $(".ring").bind('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
+        $(this).removeClass('expand');
     });
 
     queue.start();
